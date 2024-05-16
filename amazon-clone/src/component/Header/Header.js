@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import classes from "./Header.module.css";
 import LowerHeader from './LowerHeader';
 import { BiCart } from "react-icons/bi";
 import { BiSearch } from "react-icons/bi";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import {Link} from "react-router-dom"
+import { DataContext } from '../DataProvider/DataProvider';
+
 
 
 
 function Header() {
+    const [state, disptasch]=useContext(DataContext)
+
+    console.log(state.length);
   return (
-    <>
+    <section className={classes.fixed}>
         <section>
             <div className={classes.header__container}>
                 {/* logo section*/}
@@ -69,7 +74,7 @@ function Header() {
                     <BiCart  size={35}/>
                 
                         {/* icon */}
-                        <span>0</span>
+                        <span>{state.length}</span>
                     </Link>
 
                 </div>
@@ -77,7 +82,7 @@ function Header() {
             </div>
         </section>
         <LowerHeader/>
-    </>
+    </section>
   )
 }
 
