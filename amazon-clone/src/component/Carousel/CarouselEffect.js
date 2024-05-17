@@ -6,7 +6,7 @@ import classes from "./Carousel.module.css"
 function CarouselEffect() {
   return (
     <div>
-     
+    
         <Carousel
             autoPlay={true}
             infiniteLopp={true}
