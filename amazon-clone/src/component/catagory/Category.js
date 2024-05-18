@@ -5,7 +5,7 @@ import classes from "./Catagory.module.css"
 
 function Category() {
   return (
-   <section className={classes.category__container}>
+  <section className={classes.category__container}>
     
     
     {
@@ -13,7 +13,9 @@ function Category() {
             <CategoryCard data ={infos}/>
         ))
     }
-   </section>
+  </section>
+  
+   
   )
 }
 
