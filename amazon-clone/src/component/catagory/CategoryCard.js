@@ -11,7 +11,7 @@ function CategoryCard({data}) {
                 <h2>{data?.title}</h2>
             </span>
             <img src={data?.image} alt="" />
-            <p>shop now</p>
+            <p >shop now</p>
         </Link>
     </div>
   )

@@ -81,10 +81,10 @@ function Footer() {
 
 
                 <div className={classes.language_Selector}>
-                    <button className={classes.lauangue}><CiGlobe classname={classes.global}/> English<RiArrowDropDownFill /> </button>
-                
+                    <button className={classes.lauangue}><CiGlobe className={classes.global} size={40}/> English<RiArrowDropDownFill  /> </button>
                     
-                    <input  className={classes.country_of_lanuauge} type="text"  placeholder='USA'/>
+                    
+                    <input  className={classes.country_of_lanuauge} type="text"    placeholder='USA'/>
                  </div>
                 
             

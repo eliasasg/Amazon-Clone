@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import classes from "./Header.module.css";
 import LowerHeader from './LowerHeader';
 import { BiCart } from "react-icons/bi";
@@ -6,17 +6,31 @@ import { BiSearch } from "react-icons/bi";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import {Link} from "react-router-dom"
 import { DataContext } from '../DataProvider/DataProvider';
+import {auth} from "../../Utility/firebase"
 
 
 
 
 function Header() {
-    const [{basket}, disptasch]=useContext(DataContext)
+    const [{user, basket}, disptasch]=useContext(DataContext)
+    const [location, setLocation]= useState({})
     const totalItem = basket?.reduce((amount, item)=>{
         return item.amount + amount
     },0)
+    fetch('https://ipapi.co/8.8.8.8/json/')
+.then(function(response) {
+  response.json().then(jsonData => {
+    setLocation(jsonData);
+  });
+})
+.catch(function(error) {
+  console.log(error)
+});
 
     // console.log(state.length);
+
+
+
   return (
     <section className={classes.fixed}>
         <section>
@@ -32,7 +46,7 @@ function Header() {
                         </span>
                         <div>
                             <p>Delivered to</p>
-                            <span>Ethiopia</span>
+                            <span>{location?.country_name}</span>
                         </div>
                     </div>
 
@@ -48,7 +62,7 @@ function Header() {
                     </select>
                     <input type="text" />
                     {/* icon */}
-                    <BiSearch  size={25}/>
+                    <BiSearch  size={38}/>
                 </div>
                 {/* right side link */}
                 
@@ -61,11 +75,30 @@ function Header() {
                         </section>
                     </Link>
                     {/* three components */}
-                    <Link to="">
-                        <div>
-                            <p>Sign In</p>
-                            <span>Account & Lists</span>
+                    <Link to={!user && "/auth"}>
+                        <div>{
+                                user?(
+                                    <>
+                                        <p>Hello {user?.email?.split("@")[0]}</p>
+                                        <span onClick={()=>auth.signOut()} >Sign Out</span>
+                                    
+                                    
+                                    </>
+                                
+                                ):(
+                                    <>
+                                    
+                                    <p>Hello, Sign In</p>
+                                    <span>Account & Lists</span>
+                                    
+                                    
+                                    </>
+                                )
+                            
+                            }
+                        
                         </div>
+                        
                     </Link>
                     {/* orders */}
                     <Link to="/orders">
@@ -90,3 +123,6 @@ function Header() {
 }
 
 export default Header
+
+
+

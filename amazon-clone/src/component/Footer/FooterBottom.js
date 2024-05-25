@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from "./Footer.module.css"
+import { MdOutlineCopyright } from "react-icons/md";
 function FooterBottom() {
     return (
         <section className={classes.footer}>
@@ -419,7 +420,7 @@ function FooterBottom() {
 
                 </div>
                 <div className={classes.footer_copyright}>
-                    @1996-2024, Amazon.com, Inc. or its affiliates
+                <MdOutlineCopyright />1996-2024, Amazon.com, Inc. or its affiliates
                 </div>
             </div>
 
