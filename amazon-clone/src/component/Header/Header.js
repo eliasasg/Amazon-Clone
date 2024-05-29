@@ -12,7 +12,7 @@ import {auth} from "../../Utility/firebase"
 
 
 function Header() {
-    const [{user, basket}, disptasch]=useContext(DataContext)
+    const [{user, basket}, dispatch]=useContext(DataContext)
     const [location, setLocation]= useState({})
     const totalItem = basket?.reduce((amount, item)=>{
         return item.amount + amount

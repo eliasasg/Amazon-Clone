@@ -46,7 +46,6 @@ function ProductCard({product,flex,renderDesc,renderAdd}) {
                 add to cart
             </button>
             }
-           
         </div>
     </div>
   )

@@ -52,7 +52,7 @@ const handlePayment = async(e)=>{
 
      // client side (react side confirmation)
 
-     const {paymentIntent}= await stripe.confirmCardPayment(
+    const {paymentIntent}= await stripe.confirmCardPayment(
       clientSecret,
       {
         payment_method:{
