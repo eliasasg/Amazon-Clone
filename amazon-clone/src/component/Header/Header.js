@@ -17,17 +17,17 @@ function Header() {
     const totalItem = basket?.reduce((amount, item)=>{
         return item.amount + amount
     },0)
-    fetch('https://ipapi.co/8.8.8.8/json/')
+
+fetch('https://ipapi.co/8.8.8.8/country/')
 .then(function(response) {
-  response.json().then(jsonData => {
-    setLocation(jsonData);
+  response.text().then(txt => {
+    console.log(txt);
   });
 })
 .catch(function(error) {
   console.log(error)
 });
 
-    // console.log(state.length);
 
 
 
@@ -75,8 +75,8 @@ function Header() {
                         </section>
                     </Link>
                     {/* three components */}
-                    <Link to={!user && "/auth"}>
-                        <div>{
+                    <Link to={!user && "/auth"} >
+                        <div className={classes.signin_out}>{
                                 user?(
                                     <>
                                         <p>Hello {user?.email?.split("@")[0]}</p>
@@ -88,7 +88,7 @@ function Header() {
                                 ):(
                                     <>
                                     
-                                    <p>Hello, Sign In</p>
+                                    <p >Hello, Sign In</p>
                                     <span>Account & Lists</span>
                                     
                                     

@@ -79,6 +79,7 @@
     align-items: center;
     justify-content: center;
     max-width: 450px;
+    
     gap: 10px;
 }
 .order__container a{
@@ -86,7 +87,8 @@
     color: white;
 }
 .order__container p{
-    font-size: 10px;
+    font-size: 14px;
+    width: 90px;
 }
 .language{
     width: 100%;
@@ -102,6 +104,13 @@
     width: 40%;
     height: 25px;
 }
+.signin_out span{
+    display: flex;
+    font-size: 12px;
+    width: 90px;
+
+}
+
 
 .cart{
     position: relative;
