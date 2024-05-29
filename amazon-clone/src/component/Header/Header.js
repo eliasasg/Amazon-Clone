@@ -46,7 +46,7 @@ fetch('https://ipapi.co/8.8.8.8/country/')
                         </span>
                         <div>
                             <p>Delivered to</p>
-                            <span>{location?.country_name}</span>
+                            <span size={14}>{location?.country_name}</span>
                         </div>
                     </div>
 
